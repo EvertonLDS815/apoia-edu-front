@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Children from './pages/Children';
 import Home from './pages/Home';
 import Register from './pages/Register';
+import GetChild from './pages/GetChild';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/children" element={<Children />} />
             <Route path="/new-register" element={<Register />} />
+            <Route path="/get-child/:id" element={<GetChild />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/login" replace />} />

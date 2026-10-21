@@ -8,7 +8,13 @@ function Home() {
     const [name, setName] = useState("");
     const [records, setRecords] = useState([]);
     const [children, setChildren] = useState([]);
+    
+    const navigate = useNavigate();
 
+    function handleGetChild(id) {
+        navigate(`/get-child/${id}`);
+    }
+    
     useEffect(() => {
         async function getChildren() {
             try {
@@ -45,7 +51,6 @@ function Home() {
         );
     });
 
-    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -74,7 +79,6 @@ function Home() {
                 }
 
                 const { data } = await api.get('/records');
-                console.log(data)
 
                 setRecords(data);
             } catch (err) {
@@ -110,7 +114,7 @@ function Home() {
                 <div className="box-2">
                     <div className="align-data">
                         <div className="box-2-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
                         </div>
                         <div>
                             <h3>{children.length}</h3>
@@ -119,7 +123,7 @@ function Home() {
                     </div>
                     <div className="align-data">
                         <div className="box-2-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="m9 16 2 2 4-4"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="m9 16 2 2 4-4"></path></svg>
                         </div>
                         <div>
                             <h3>{registrosHoje.length}</h3>
@@ -137,8 +141,8 @@ function Home() {
 
                             <div className="box-3">
                                     {records.map((rec) => (
-                                        <div className="recents">
-                                            <div key={rec._id}>
+                                        <div className="recents" key={rec._id} onClick={() => handleGetChild(rec._id)}>
+                                            <div>
                                                 <strong>{rec.childId.name}</strong>
                                                 {rec.behavior.set.length > 0 && 
                                                 <p>
@@ -159,7 +163,7 @@ function Home() {
                                                 }
                                                 </div>
                                             <span>{new Date(rec.date).toLocaleDateString("pt-BR")}</span>
-                                            </div>
+                                        </div>
                                     ))}
                             </div>
                         </>

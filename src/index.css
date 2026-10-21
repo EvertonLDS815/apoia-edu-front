@@ -389,6 +389,41 @@ main {
   cursor: pointer;
 }
 
+.dis-b {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.delete-button {
+  background-color: transparent;
+  color: #e7000b;
+  box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;
+}
+
+.delete-button:hover {
+  color: #733119;
+  background-color: var(--icon-bg);
+  transition: all 200ms ease;
+}
+
+.soft-card {
+  background-color: white;
+  border-radius: 16px;
+  border: 1px solid var(--border-header);
+}
+
+.p-5 {
+  padding: 20px;
+}
+.p-5:nth-child(n + 2) {
+  border-top: 1px solid var(--border-header);
+}
+
+.head-p {
+  color: var(--secondary-color);
+}
 @media(max-width: 900px) {
   .align-div-h {
     margin: 0;
