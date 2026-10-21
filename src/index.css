@@ -221,7 +221,7 @@ main {
   background-color: white;
   border-radius: 10px;
   border: 1px solid var(--border-header);
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 }
 
 .recents {
@@ -229,6 +229,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   transition: cubic-bezier(.4, 0, .2, 1) all 100ms;
 }
 
@@ -314,7 +315,7 @@ main {
   border-radius: 1rem;
   border: 1px solid var(--border-header);
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3.5rem;
   max-width: 48rem;
 }
 
@@ -353,6 +354,10 @@ main {
   color: var(--primary-color);
   font-size: 0.9rem;
   cursor: pointer;
+}
+
+.behavior button[aria-pressed="true"] {
+  background-color: var(--nav-bg-active);
 }
 
 .behavior button:hover {
@@ -412,6 +417,22 @@ main {
   .box-4 {
     margin-bottom: 4rem;
   }
+
+  main {
+    padding: 1.5rem;
+  }
+
+  .header nav {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    justify-content: space-around;
+    gap: 0;
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid var(--border-header);
+  }
 }
 
 @media(max-width: 450px) {
@@ -427,7 +448,11 @@ main {
   }
 
   main {
-    padding: 3rem 1rem 0;
+    padding: 1rem;
+  }
+
+  .title-name {
+    font-size: 26px;
   }
 
   .form-reg {

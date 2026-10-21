@@ -19,11 +19,7 @@ function Home() {
                     return;
                 }
 
-                const { data } = await api.get('/children', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
+                const { data } = await api.get('/children');
 
                 setChildren(data);
             } catch (err) {
@@ -78,8 +74,8 @@ function Home() {
                 }
 
                 const { data } = await api.get('/records');
-
                 console.log(data)
+
                 setRecords(data);
             } catch (err) {
                 console.error(

@@ -16,13 +16,8 @@ function Children() {
                     return;
                 }
 
-                const { data } = await api.get('/children', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
+                const { data } = await api.get('/children');
 
-                console.log(data)
                 setChildren(data);
             } catch (err) {
                 console.error(
