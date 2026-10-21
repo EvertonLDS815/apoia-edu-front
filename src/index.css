@@ -412,6 +412,7 @@ main {
   background-color: white;
   border-radius: 16px;
   border: 1px solid var(--border-header);
+  margin-bottom: 1rem;
 }
 
 .p-5 {
@@ -423,6 +424,11 @@ main {
 
 .head-p {
   color: var(--secondary-color);
+}
+
+.follow {
+  display: inline-block;
+  margin-bottom: 4rem;
 }
 @media(max-width: 900px) {
   .align-div-h {
