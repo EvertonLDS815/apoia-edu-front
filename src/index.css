@@ -383,6 +383,13 @@ main {
   margin-bottom: 1rem;
   font-size: 1rem;
   font-family: 'Nunito', sans-serif;
+  box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;
+}
+
+.desc-beh label textarea:focus,
+.child-f select:focus,
+.child-f input:focus {
+  border-color: #733119;
 }
 
 .desc-beh button {
@@ -440,9 +447,14 @@ main {
   border: 1px solid #e0dace;
   padding-inline: 4px;
   width: 100%;
-  padding: 12px;
-  border-radius: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
   font-size: 1rem;
+  box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;;
+}
+
+.nc-input:focus {
+  border-color: #733119;
 }
 @media(max-width: 900px) {
   .align-div-h {

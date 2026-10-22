@@ -98,7 +98,7 @@ function GetChild() {
                     </div>
                 </div>
                 <Link to={`/home`} className="head-p follow">
-                    Volta ao acompanhamento
+                    Voltar ao acompanhamento
                 </Link>
             </main>
         </>

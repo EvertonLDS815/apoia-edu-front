@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import api from '../../config';
+import { useNavigate } from "react-router-dom";
 
 
 function Register() {
@@ -9,6 +10,9 @@ function Register() {
     const [behavior, setBehavior] = useState([]);
     const [participation, setParticipation] = useState([]);
     const [description, setDescription] = useState("");
+
+    const navigate = useNavigate();
+    
     const hoje = new Date();
     const dataAtual = hoje.getFullYear() + "-" +
     String(hoje.getMonth() + 1).padStart(2, "0") + "-" +
@@ -41,28 +45,20 @@ function Register() {
             childId: childId
         };
         
-        const { data } = await api.post("/record", payload);
+        await api.post("/record", payload);
 
-        console.log("Registro criado:", data);
-        alert("Registro salvo com sucesso!");
-    } catch (error) {
+        navigate('/home');
+    } catch (err) {
         console.error(
             "Erro ao criar registro:",
-            error.response?.data || error.message
+            err.response?.data || err.message
         );
-
-        alert("Não foi possível salvar o registro.");
     }
 }
 
     useEffect(() => {
         async function getChildren() {
-            const token = localStorage.getItem("token");
-            const {data} = await api.get("/children", {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+            const {data} = await api.get("/children");
     
             setChildren(data);
         }

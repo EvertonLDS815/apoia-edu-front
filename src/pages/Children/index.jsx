@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 
 import api from '../../config';
+import { useNavigate } from "react-router-dom";
 
 function Children() {
     const [children, setChildren] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function getChildren() {
@@ -50,7 +53,7 @@ function Children() {
 
                     <div className="align-buttons">
 
-                        <button className="new-reg">+ Nova Criança</button>
+                        <button className="new-reg" onClick={() => navigate('/new-child')}>+ Nova Criança</button>
                     </div>
 
                 </div>
