@@ -245,6 +245,11 @@ main {
   color: var(--primary-color);
 }
 
+.span-date {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
 .box-4 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -364,12 +369,12 @@ main {
   background-color: var(--nav-bg-active);
 }
 
-.desc-beh {
+.desc-beh label{
   display: flex;
   flex-direction: column;
 }
 
-.desc-beh textarea {
+.desc-beh label textarea {
   max-width: 100%;
   height: 120px;
   border-radius: 14px;
@@ -429,6 +434,15 @@ main {
 .follow {
   display: inline-block;
   margin-bottom: 4rem;
+}
+
+.nc-input {
+  border: 1px solid #e0dace;
+  padding-inline: 4px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  font-size: 1rem;
 }
 @media(max-width: 900px) {
   .align-div-h {

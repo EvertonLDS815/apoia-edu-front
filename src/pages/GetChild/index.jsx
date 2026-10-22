@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import api from "../../config";
 import { useEffect, useState } from "react";
+import FormatDate from "../../utils/FormatDate";
 
 function GetChild() {
     const [record, setRecord] = useState(null);
@@ -56,11 +57,7 @@ function GetChild() {
                         </h1>
 
                         <p className="p-title">
-                            Registro de{" "}
-                            {new Date(record.date).toLocaleDateString(
-                                "pt-BR",
-                                { timeZone: "UTC" }
-                            )}
+                            Registro de {FormatDate(record)}
                         </p>
                     </div>
                     <div className="align-buttons">
@@ -77,9 +74,7 @@ function GetChild() {
 
                 <div className="soft-card">
                     <div className="p-5">
-                        <p className="head-p">
-                            Comportamento / estado emocional
-                        </p>
+                        <p className="head-p">Comportamento / estado emocional</p>
 
                         <p className="body-p">
                             {record.behavior?.set?.join(", ")}

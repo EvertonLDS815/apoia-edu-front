@@ -209,11 +209,13 @@ function Register() {
                             >Não participou</button>
                         </div>
                         <div className="desc-beh">
+                            <label>
                             <span className="legend">Relatório(avanço ou dificuldade observada)</span>
-                            <textarea
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                            />
+                                <textarea
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    />
+                            </label>
                             <button className="new-reg">Salvar Registro</button>
                         </div>
                 </form>

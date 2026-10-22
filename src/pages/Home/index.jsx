@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header"
 import api from "../../config";
 import { useNavigate } from "react-router-dom";
+import FormatDate from "../../utils/FormatDate";
 
 
 function Home() {
@@ -107,7 +108,7 @@ function Home() {
 
                     <div className="align-buttons">
 
-                        <button className="new-child">+ Nova Criança</button>
+                        <button className="new-child" onClick={() => navigate('/new-child')}>+ Nova Criança</button>
                         <button className="new-reg" onClick={() => navigate('/new-register')}>+ Novo Registro</button>
                     </div>
                 </div>
@@ -162,7 +163,7 @@ function Home() {
                                                 </p>
                                                 }
                                                 </div>
-                                            <span>{new Date(rec.date).toLocaleDateString("pt-BR")}</span>
+                                            <strong className="span-date">{FormatDate(rec)}</strong>
                                         </div>
                                     ))}
                             </div>
