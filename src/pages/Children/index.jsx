@@ -23,6 +23,7 @@ function Children() {
 
                 setChildren(data);
             } catch (err) {
+                console.log('logout aqui');
                 console.error(
                     'Erro ao buscar crianças:',
                     err.response?.data || err.message

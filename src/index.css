@@ -246,7 +246,7 @@ main {
 }
 
 .span-date {
-  color: var(--secondary-color);
+  color: var(--text-color);
   font-weight: 600;
 }
 
@@ -450,11 +450,32 @@ main {
   padding: 10px 12px;
   border-radius: 10px;
   font-size: 1rem;
-  box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;;
+  box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;
 }
 
 .nc-input:focus {
   border-color: #733119;
+}
+
+.desc-child {
+  color: #733119;
+  background-color: var(--icon-bg);
+  padding: 20px;
+  border-radius: 1.2rem;
+}
+
+.view {
+  padding: 0 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;
+  height: 32px;
+  background-color: #faf6ee;
+}
+
+.view:hover {
+  background-color: var(--icon-bg);
 }
 @media(max-width: 900px) {
   .align-div-h {
@@ -524,6 +545,10 @@ main {
 
   .form-reg {
     padding: 1rem;
+  }
+
+  .recents:hover {
+    background:none;
   }
 
   .child-f {

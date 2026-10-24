@@ -49,6 +49,7 @@ function Register() {
 
         navigate('/home');
     } catch (err) {
+        console.log('logout aqui');
         console.error(
             "Erro ao criar registro:",
             err.response?.data || err.message

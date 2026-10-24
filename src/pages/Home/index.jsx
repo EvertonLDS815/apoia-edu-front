@@ -83,6 +83,8 @@ function Home() {
 
                 setRecords(data);
             } catch (err) {
+                
+                console.log('logout aqui');
                 console.error(
                     'Erro ao buscar registros',
                     err.response?.data || err.message

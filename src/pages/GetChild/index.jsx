@@ -17,8 +17,9 @@ function GetChild() {
                 const { data } = await api.get(`/record/${id}`);
 
                 setRecord(data);
-            } catch (error) {
-                console.error("Erro ao carregar registro:", error);
+            } catch (err) {
+                console.log('logout aqui');
+                console.error("Erro ao carregar registro:", err);
             } finally {
                 setLoading(false);
             }
@@ -31,7 +32,9 @@ function GetChild() {
         return (
             <>
                 <Header />
-                <p>Carregando registro...</p>
+                <main>
+                    <h1 className="title-name">Carregando registro...</h1>
+                </main>
             </>
         );
     }
@@ -40,7 +43,9 @@ function GetChild() {
         return (
             <>
                 <Header />
-                <p>Registro não encontrado.</p>
+                <main>
+                    <h1 className="title-name">Registro não encontrado!!</h1>
+                </main>
             </>
         );
     }
