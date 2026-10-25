@@ -4,7 +4,7 @@ import api from '../../config';
 import { useNavigate } from "react-router-dom";
 
 
-function Register() {
+function NewRegister() {
     const [children, setChildren] = useState([]);
     const [childId, setChildId] = useState("");
     const [behavior, setBehavior] = useState([]);
@@ -227,4 +227,4 @@ function Register() {
         </>
     )
 }
-export default Register;
+export default NewRegister;
