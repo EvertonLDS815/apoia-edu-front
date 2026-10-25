@@ -5,8 +5,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import FormatDate from "../../utils/FormatDate";
 
 
-function ChildId() {
-    const [reg, setReg] = useState({ records: []});
+function PerfilChild() {
+    const [reg, setReg] = useState({ child: null, records: []});
     const { childId } = useParams();
 
     const navigate = useNavigate();
@@ -42,8 +42,10 @@ function ChildId() {
 
             <div className="box-content">
                 <div>
-                    <h1 className="title-name">{reg.records[0]?.childId.name}</h1>
-                    <p className="p-title">{reg.records[0]?.childId.grade} · Último registro: {FormatDate(reg.lastRecordDate)}</p>
+                    <h1 className="title-name">{reg.child?.name}</h1>
+                    <p className="p-title">
+                        {reg.child?.grade} · Último registro: {reg.lastRecordDate === null ? "Sem registros" : FormatDate(reg.lastRecordDate)}
+                    </p>
                 </div>
                 <div className="align-buttons">
                     <button className="new-child dis-b">
@@ -57,10 +59,11 @@ function ChildId() {
                 </div>
             </div>
 
-            <div className="desc-child">{reg.records[0]?.childId.description}</div>
+            <div className="desc-child">{reg.child?.description}</div>
 
-            {reg.records.length > 0 && <h2 className="title-recent">Histórico de registros</h2>}
-            {reg.records.length === 0 && <h2 className="title-recent">Sem registros</h2>}
+            <h2 className="title-recent">Histórico de registros</h2>
+
+            {reg.records.length === 0 && <p className="p-title">Nenhum registro ainda.</p>}
 
             <div className="box-3">
                     {reg.records.map((r) => (
@@ -93,4 +96,4 @@ function ChildId() {
   )
 }
 
-export default ChildId;
+export default PerfilChild;
