@@ -79,7 +79,7 @@ function GetChild() {
 
                 <div className="soft-card">
                     <div className="p-5">
-                        <p className="head-p">Comportamento / estado emocional</p>
+                        <p className="head-p">Estado emocional / social</p>
 
                         <p className="body-p">
                             {record.behavior?.set?.join(", ")}

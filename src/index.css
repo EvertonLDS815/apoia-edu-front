@@ -365,8 +365,10 @@ main {
   background-color: var(--nav-bg-active);
 }
 
-.behavior button:hover {
-  background-color: var(--nav-bg-active);
+@media (hover: hover) and (pointer: fine) {
+    .behavior button:hover {
+        background-color: var(--nav-bg-active);
+    }
 }
 
 .desc-beh label{

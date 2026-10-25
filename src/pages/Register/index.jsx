@@ -107,7 +107,7 @@ function Register() {
                         </label>
                     </div>
 
-                        <span className="legend">Comportamento / estado emocional</span>
+                        <span className="legend">Estado emocional / social</span>
                         <div className="behavior">
                             <button
                                 type="button"
@@ -165,6 +165,13 @@ function Register() {
                                     handleToggle("Sociável", behavior, setBehavior)
                                 }
                             >Sociável</button>
+                            <button
+                                type="button"
+                                aria-pressed={behavior.includes("Sonolento(a)")}
+                                onClick={() =>
+                                    handleToggle("Sonolento(a)", behavior, setBehavior)
+                                }
+                            >Sonolento(a)</button>
                         </div>
                         <span className="legend">Participação nas atividades</span>
                         <div className="behavior">
