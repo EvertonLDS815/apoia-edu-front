@@ -80,7 +80,7 @@ function Children() {
                                     </strong>
                                 </p>
 
-                                <button className="follow-see">Ver acompanhamento</button>
+                                <button className="follow-see" onClick={() => navigate(`/perfil-child/${kid._id}`)}>Ver acompanhamento</button>
                             </div>
                         ))}
                     </div>

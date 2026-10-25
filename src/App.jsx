@@ -20,7 +20,7 @@ function App() {
             <Route path="/children" element={<Children />} />
             <Route path="/new-register" element={<Register />} />
             <Route path="/new-child" element={<NewChild />} />
-            <Route path="/perfil-child" element={<ChildId />} />
+            <Route path="/perfil-child/:childId" element={<ChildId />} />
             <Route path="/get-child/:id" element={<GetChild />} />
           </Route>
 

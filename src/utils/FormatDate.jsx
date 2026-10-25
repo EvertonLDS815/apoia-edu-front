@@ -1,5 +1,5 @@
 
-const FormatDate = ({date}) => {
+const FormatDate = (date) => {
     return new Date(date).toLocaleDateString(
             "pt-BR",
             { timeZone: "UTC" }

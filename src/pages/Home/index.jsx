@@ -165,7 +165,7 @@ function Home() {
                                                 </p>
                                                 }
                                                 </div>
-                                            <strong className="span-date">{FormatDate(rec)}</strong>
+                                            <strong className="span-date">{FormatDate(rec.date)}</strong>
                                         </div>
                                     ))}
                             </div>
