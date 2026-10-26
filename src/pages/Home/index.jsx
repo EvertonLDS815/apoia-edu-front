@@ -111,7 +111,7 @@ function Home() {
                     <div className="align-buttons">
 
                         <button className="new-child" onClick={() => navigate('/new-child')}>+ Nova Criança</button>
-                        <button className="new-reg" onClick={() => navigate('/new-register')}>+ Novo Registro</button>
+                        <button className="new-reg" onClick={() => navigate('/new-record')}>+ Novo Registro</button>
                     </div>
                 </div>
                 <div className="box-2">

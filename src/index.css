@@ -9,6 +9,7 @@
   --secondary-bg: #004643;
   --Edu-color: #de7949;
   --icon-color: #733119;
+  --border-child: #5cdd64;
   --icon-bg: #ffdfcb;
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
@@ -128,7 +129,7 @@ body {
 }
 
 main {
-  padding: 3rem 5rem 0;
+  padding: 2.5rem 5rem 0;
 }
 
 .title-name {
@@ -137,6 +138,7 @@ main {
 }
 
 .p-title {
+  font-size: 1.1rem;
   color: var(--primary-color);
   display: inline-block;
 }
@@ -179,6 +181,7 @@ main {
 .new-reg {
   color: #fffafc;
   background-color: var(--secondary-color);
+  font-size: 1rem;
 }
 .new-reg:hover {
   opacity: 0.9;
@@ -327,7 +330,7 @@ main {
   border: 1px solid var(--border-header);
   padding: 2rem;
   margin-bottom: 3.5rem;
-  max-width: 48rem;
+  max-width: 40rem;
 }
 
 .child-f {
@@ -347,6 +350,7 @@ main {
 }
 
 .legend {
+  font-size: 1.1rem;
   display: block;
   margin: 16px 0 10px;
 }
@@ -363,7 +367,7 @@ main {
   border-radius: 20px;
   background-color: white;
   color: var(--primary-color);
-  font-size: 0.9rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -380,6 +384,7 @@ main {
 .desc-beh label{
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .desc-beh label textarea {
@@ -388,8 +393,7 @@ main {
   border-radius: 14px;
   border: 1px solid var(--border-header);
   padding: 12px;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: 'Nunito', sans-serif;
   box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;
 }
@@ -397,12 +401,12 @@ main {
 .desc-beh label textarea:focus,
 .child-f select:focus,
 .child-f input:focus {
-  border-color: #733119;
+  border-color: var(--border-child);
+  box-shadow: 0 0 4px 0 var(--border-child), 0 1px 2px -1px var(--border-child);
 }
 
 .desc-beh button {
   padding: 8px 32px;
-  width: 160px;
   height: 40px;
   border: none;
   border-radius: 14px;
@@ -457,16 +461,17 @@ main {
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;
 }
 
 .nc-input:focus {
-  border-color: #733119;
+  border-color: var(--border-child);
+  box-shadow: 0 0 4px 0 var(--border-child), 0 1px 2px -1px var(--border-child);
 }
 
 .desc-child {
-  color: #733119;
+  color: var(--icon-color);
   background-color: var(--icon-bg);
   padding: 20px;
   border-radius: 1.2rem;
@@ -548,7 +553,7 @@ main {
   }
 
   .title-name {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   .form-reg {

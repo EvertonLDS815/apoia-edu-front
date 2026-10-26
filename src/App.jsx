@@ -2,9 +2,9 @@ import {Routes, BrowserRouter, Route, Navigate} from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 import Login from './pages/Login';
-import Children from './pages/Children';
+import GetChildren from './pages/GetChildren';
 import Home from './pages/Home';
-import NewRegister from './pages/NewRegister';
+import NewRecord from './pages/NewRecord';
 import GetChild from './pages/GetChild';
 import NewChild from './pages/NewChild';
 import PerfilChild from './pages/PerfilChild';
@@ -19,8 +19,8 @@ function App() {
           <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
           <Route element={<PrivateLayout />}>
             <Route path="/home" element={<Home />} />
-            <Route path="/children" element={<Children />} />
-            <Route path="/new-register" element={<NewRegister />} />
+            <Route path="/children" element={<GetChildren />} />
+            <Route path="/new-record" element={<NewRecord />} />
             <Route path="/new-child" element={<NewChild />} />
             <Route path="/perfil-child/:childId" element={<PerfilChild />} />
             <Route path="/get-child/:id" element={<GetChild />} />

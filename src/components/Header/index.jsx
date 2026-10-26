@@ -25,7 +25,7 @@ function Header() {
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#54676d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             Crianças
                         </a>
-                        <a onClick={() => navigate('/new-register')} className={"nav-link " + (location.pathname === '/new-register' ? 'active' : '')}>
+                        <a onClick={() => navigate('/new-record')} className={"nav-link " + (location.pathname === '/new-record' ? 'active' : '')}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#54676d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
                             Novo Registro
                         </a>

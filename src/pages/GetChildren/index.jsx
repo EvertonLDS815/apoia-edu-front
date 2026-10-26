@@ -4,13 +4,13 @@ import Header from "../../components/Header";
 import api from '../../config';
 import { useNavigate } from "react-router-dom";
 
-function Children() {
+function GetChildren() {
     const [children, setChildren] = useState([]);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function getChildren() {
+        async function loadChildren() {
             try {
                 const token = localStorage.getItem('token');
 
@@ -31,7 +31,7 @@ function Children() {
             }
         }
 
-        getChildren();
+        loadChildren();
     }, []);
 
     
@@ -89,4 +89,4 @@ function Children() {
     )
 }
 
-export default Children
+export default GetChildren

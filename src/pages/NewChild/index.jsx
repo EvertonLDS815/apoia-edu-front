@@ -50,6 +50,7 @@ function NewChild() {
                             className="nc-input"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required
                         />
                     </label>
                     <label>
@@ -60,6 +61,7 @@ function NewChild() {
                                 placeholder="Ex: 2º A"
                                 value={grade}
                                 onChange={(e) => setGrade(e.target.value)}
+                                required
                             />
                     </label>
                     <div className="desc-beh">
@@ -68,8 +70,8 @@ function NewChild() {
                             <textarea
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}/>
-                            <button className="new-reg">Salvar criança</button>
                         </label>
+                        <button className="new-reg">Salvar criança</button>
                     </div>
                 </form>
             </main>
