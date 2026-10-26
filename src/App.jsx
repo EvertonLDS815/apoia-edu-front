@@ -9,6 +9,7 @@ import GetChild from './pages/GetChild';
 import NewChild from './pages/NewChild';
 import PerfilChild from './pages/PerfilChild';
 import EditRecord from './pages/EditRecord';
+import EditChild from './pages/EditChild';
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
             <Route path="/new-child" element={<NewChild />} />
             <Route path="/perfil-child/:childId" element={<PerfilChild />} />
             <Route path="/get-child/:id" element={<GetChild />} />
-            <Route path="/edit-record" element={<EditRecord />} />
+            <Route path="/edit-record/:recordId" element={<EditRecord />} />
+            <Route path="/edit-child/:childId" element={<EditChild />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/login" replace />} />
