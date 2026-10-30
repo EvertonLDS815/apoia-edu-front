@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import NewRecord from './pages/NewRecord';
 import GetChild from './pages/GetChild';
 import NewChild from './pages/NewChild';
-import PerfilChild from './pages/PerfilChild';
+import ChildRecord from './pages/ChildRecord';
 import EditRecord from './pages/EditRecord';
 import EditChild from './pages/EditChild';
 
@@ -22,8 +22,8 @@ function App() {
             <Route path="/children" element={<GetChildren />} />
             <Route path="/new-record" element={<NewRecord />} />
             <Route path="/new-child" element={<NewChild />} />
-            <Route path="/perfil-child/:childId" element={<PerfilChild />} />
-            <Route path="/get-child/:recordId" element={<GetChild />} />
+            <Route path="/child/record/:childId" element={<ChildRecord />} />
+            <Route path="/get-record/:recordId" element={<GetChild />} />
             <Route path="/edit-record/:recordId" element={<EditRecord />} />
             <Route path="/edit-child/:childId" element={<EditChild />} />
           </Route>

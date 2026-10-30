@@ -8,6 +8,7 @@ function EditChild() {
     const [name, setName] = useState("");
     const [grade, setGrade] = useState("");
     const [description, setDescription] = useState("");
+    const [loading, setLoading] = useState(true);
 
     const {childId} = useParams();
 
@@ -20,6 +21,7 @@ function EditChild() {
         setName(data.name);
         setGrade(data.grade);
         setDescription(data.description);
+        setLoading(false);
     }
 
     getChild();
@@ -34,11 +36,23 @@ function EditChild() {
                 grade,
                 description
             });
-            navigate(`/perfil-child/${childId}`);
+            navigate(`/child/record/${childId}`);
             
         } catch (err) {
             console.error(err);
         }
+    }
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="loading-page">
+                    <div className="spinner"></div>
+                    <p>Carregando informações...</p>
+                </div>
+            </>
+        );
     }
 
     return (

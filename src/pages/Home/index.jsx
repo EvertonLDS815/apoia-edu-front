@@ -9,35 +9,58 @@ function Home() {
     const [name, setName] = useState("");
     const [records, setRecords] = useState([]);
     const [children, setChildren] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     const navigate = useNavigate();
 
-    function handleGetChild(id) {
-        navigate(`/get-child/${id}`);
+    function handleGetRecord(id) {
+        navigate(`/get-record/${id}`);
     }
     
     useEffect(() => {
-        async function getChildren() {
-            try {
-                const token = localStorage.getItem('token');
+    async function loadDashboard() {
+        try {
+            const token = localStorage.getItem("token");
 
-                if (!token) {
-                    console.log('Token não encontrado');
-                    return;
-                }
-
-                const { data } = await api.get('/children');
-
-                setChildren(data);
-            } catch (err) {
-                console.error(
-                    'Erro ao buscar crianças:',
-                    err.response?.data || err.message
-                );
+            if (!token) {
+                console.log("Token não encontrado");
+                return;
             }
-        }
 
-        getChildren();
+            const results = await Promise.allSettled([
+                api.get("/user"),
+                api.get("/children"),
+                api.get("/records")
+            ]);
+
+            // Dados do usuário
+            if (results[0].status === "fulfilled") {
+                setName(results[0].value.data.name);
+            } else {
+                console.error("Erro ao buscar usuário:", results[0].reason);
+            }
+
+            // Crianças cadastradas
+            if (results[1].status === "fulfilled") {
+                setChildren(results[1].value.data);
+            } else {
+                console.error("Erro ao buscar crianças:", results[1].reason);
+            }
+
+            // Registros
+            if (results[2].status === "fulfilled") {
+                setRecords(results[2].value.data);
+            } else {
+                console.error("Erro ao buscar registros:", results[2].reason);
+            }
+            
+            setLoading(false);
+        } catch (err) {
+            console.error("Erro ao carregar dashboard:", err);
+        }
+    }
+
+        loadDashboard();
     }, []);
 
     const hoje = new Date();
@@ -52,48 +75,17 @@ function Home() {
         );
     });
 
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        function getUserByToken() {
-            api.get('/user')
-            .then(response => {
-                setName(response.data.name);
-            }
-            )
-            .catch(error => {
-                console.error('Failed to fetch user data:', error);
-            });
-        }
-            getUserByToken(token);
-    }, []);
-
-
-    useEffect(() => {
-        async function getRecords() {
-            try {
-                const token = localStorage.getItem('token');
-
-                if (!token) {
-                    console.log('Token não encontrado');
-                    return;
-                }
-
-                const { data } = await api.get('/records');
-
-                setRecords(data);
-            } catch (err) {
-                
-                console.log('logout aqui');
-                console.error(
-                    'Erro ao buscar registros',
-                    err.response?.data || err.message
-                );
-            }
-        }
-
-        getRecords();
-    }, []);
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="loading-page">
+                    <div className="spinner"></div>
+                    <p>Carregando informações...</p>
+                </div>
+            </>
+        );
+    }
 
     
     return (
@@ -144,9 +136,9 @@ function Home() {
 
                             <div className="box-3">
                                     {records.map((rec) => (
-                                        <div className="recents" key={rec._id} onClick={() => handleGetChild(rec._id)}>
+                                        <div className="recents" key={rec._id} onClick={() => handleGetRecord(rec._id)}>
                                             <div>
-                                                <strong>{rec.childId.name}</strong>
+                                                <strong>{rec.childId?.name || "Criança não identificada"}</strong>
                                                 {rec.behavior.set.length > 0 && 
                                                 <p>
                                                     {rec.behavior.set.map((set, index) => (

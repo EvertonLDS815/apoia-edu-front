@@ -6,9 +6,10 @@ import FormatDate from "../../utils/FormatDate";
 import DeleteChild from "../../components/DeleteChild";
 
 
-function PerfilChild() {
+function ChildRecord() {
     const [reg, setReg] = useState({ child: null, records: []});
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [loading, setLoading] = useState(true);
     const { childId } = useParams();
 
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ function PerfilChild() {
             try {
                 const { data } = await api.get(`/records/${childId}`);
                 
+                setLoading(false);
                 setReg(data);
             } catch (err) {
                 navigate('/home');
@@ -38,7 +40,17 @@ function PerfilChild() {
         setIsModalVisible((prev) => !prev);
     }
     
-
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="loading-page">
+                    <div className="spinner"></div>
+                    <p>Carregando informações...</p>
+                </div>
+            </>
+        );
+    }
 
 
   return (
@@ -101,7 +113,7 @@ function PerfilChild() {
                                 </p>
                             </div>
 
-                            <button className="view" onClick={() => navigate(`/get-child/${r._id}`)}>Visualizar</button>
+                            <button className="view" onClick={() => navigate(`/get-record/${r._id}`)}>Visualizar</button>
                         </div>
                     ))}
             </div>
@@ -110,4 +122,4 @@ function PerfilChild() {
   )
 }
 
-export default PerfilChild;
+export default ChildRecord;

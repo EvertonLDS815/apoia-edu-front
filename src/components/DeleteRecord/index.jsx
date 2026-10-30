@@ -15,7 +15,7 @@ function DeleteRecord({visible, date, params, onClose, child}) {
         try {
             await api.delete(`/record/${params}`);
 
-            navigate(`/perfil-child/${child}`);
+            navigate(`/child/record/${child}`);
         } catch (err) {
             console.error(err);
         }

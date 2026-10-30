@@ -37,9 +37,10 @@ function GetChild() {
         return (
             <>
                 <Header />
-                <main>
-                    <h1 className="title-name">Carregando registro...</h1>
-                </main>
+                <div className="loading-page">
+                    <div className="spinner"></div>
+                    <p>Carregando informações...</p>
+                </div>
             </>
         );
     }
@@ -120,7 +121,7 @@ function GetChild() {
                         </div>
                     </div>
                 </div>
-                <Link to={`/perfil-child/${record.childId._id}`} className="head-p follow">
+                <Link to={`/child/record/${record.childId._id}`} className="head-p follow">
                     Voltar ao acompanhamento
                 </Link>
             </main>

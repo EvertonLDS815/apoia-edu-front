@@ -11,6 +11,7 @@ function EditRecord() {
     const [participation, setParticipation] = useState([]);
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
+    const [loading, setLoading] = useState(true);
 
     const {recordId} = useParams();
     const navigate = useNavigate();
@@ -20,8 +21,6 @@ function EditRecord() {
         async function getRecord() {
             try {
                 const { data } = await api.get(`/record/${recordId}`);
-
-                console.log(data);
 
                 setChildId(
                     typeof data.childId === "object"
@@ -42,6 +41,8 @@ function EditRecord() {
                         String(parsedDate.getDate()).padStart(2, "0")
                     ].join("-"));
                 }
+            
+                setLoading(false);
             } catch (err) {
                 console.error(
                     "Erro ao buscar registro:",
@@ -97,11 +98,23 @@ function EditRecord() {
             childId: childId
         });
 
-        navigate(`/get-child/${recordId}`);
+        navigate(`/get-record/${recordId}`);
         } catch (error) {
             console.error("Erro ao atualizar registro:", error);
             alert("Não foi possível atualizar o registro.");
         }
+    }
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="loading-page">
+                    <div className="spinner"></div>
+                    <p>Carregando informações...</p>
+                </div>
+            </>
+        );
     }
 
     return (

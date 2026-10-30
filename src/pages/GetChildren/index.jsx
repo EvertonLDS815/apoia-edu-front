@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function GetChildren() {
     const [children, setChildren] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
 
@@ -21,6 +22,8 @@ function GetChildren() {
 
                 const { data } = await api.get('/children');
 
+
+                setLoading(false);
                 setChildren(data);
             } catch (err) {
                 console.log('logout aqui');
@@ -33,6 +36,18 @@ function GetChildren() {
 
         loadChildren();
     }, []);
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="loading-page">
+                    <div className="spinner"></div>
+                    <p>Carregando informações...</p>
+                </div>
+            </>
+        );
+    }
 
     
     return (
@@ -80,7 +95,7 @@ function GetChildren() {
                                     </strong>
                                 </p>
 
-                                <button className="follow-see" onClick={() => navigate(`/perfil-child/${kid._id}`)}>Ver acompanhamento</button>
+                                <button className="follow-see" onClick={() => navigate(`/child/record/${kid._id}`)}>Ver acompanhamento</button>
                             </div>
                         ))}
                     </div>
