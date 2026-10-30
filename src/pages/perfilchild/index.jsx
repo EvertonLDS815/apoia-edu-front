@@ -3,7 +3,7 @@ import api from '../../config'
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import FormatDate from "../../utils/FormatDate";
-import Delete from "../../components/Delete";
+import DeleteChild from "../../components/DeleteChild";
 
 
 function PerfilChild() {
@@ -18,7 +18,7 @@ function PerfilChild() {
         async function regChild() {
             try {
                 const { data } = await api.get(`/records/${childId}`);
-
+                
                 setReg(data);
             } catch (err) {
                 navigate('/home');
@@ -45,7 +45,12 @@ function PerfilChild() {
     <>
         <Header />
 
-        <Delete visible={isModalVisible} onClose={handleToggleModal}/>
+        <DeleteChild
+            visible={isModalVisible}
+            onClose={handleToggleModal}
+            params={childId}
+            perfil={reg}
+        />
 
         <main>
 

@@ -514,7 +514,7 @@ main {
 .modal {
   background-color: white;
   border-radius: 14px;
-  padding: 14px;
+  padding: 20px;
   max-width: 40rem;
   margin: 0 auto 0;
   position: absolute;
