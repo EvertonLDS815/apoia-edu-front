@@ -29,6 +29,10 @@ function NewRecord() {
         );
     }
 
+    function handleSingleToggle(value, setState) {
+        setState((prev) => prev === value ? [] : value);
+    }
+
     async function handleCreateRecord(event) {
     event.preventDefault();
 
@@ -44,6 +48,10 @@ function NewRecord() {
             description: description,
             childId: childId
         };
+
+        if (participation.length === 0 || behavior.length === 0 || !childId || !date) {
+            return alert("Preencha os campos obrigatórios!");
+        }
         
         await api.post("/record", payload);
 
@@ -107,7 +115,7 @@ function NewRecord() {
                         </label>
                     </div>
 
-                        <span className="legend">Estado emocional / social</span>
+                        <span className="legend">Estado emocional / social *</span>
                         <div className="behavior">
                             <button
                                 type="button"
@@ -173,7 +181,7 @@ function NewRecord() {
                                 }
                             >Sonolento(a)</button>
                         </div>
-                        <span className="legend">Participação nas atividades</span>
+                        <span className="legend">Participação nas atividades *</span>
                         <div className="behavior">
                             <button
                                 type="button"
@@ -184,7 +192,7 @@ function NewRecord() {
                                 }
                                 aria-pressed={participation.includes("Participou com apoio")}
                                 onClick={() =>
-                                    handleToggle("Participou com apoio", participation, setParticipation)
+                                    handleSingleToggle("Participou com apoio", setParticipation)
                                 }
                             >Participou com apoio</button>
                             <button
@@ -196,7 +204,7 @@ function NewRecord() {
                                 }
                                 aria-pressed={participation.includes("Participou sem apoio")}
                                 onClick={() =>
-                                    handleToggle("Participou sem apoio", participation, setParticipation)
+                                    handleSingleToggle("Participou sem apoio", setParticipation)
                                 }
                             >Participou sem apoio</button>
                             <button
@@ -208,7 +216,7 @@ function NewRecord() {
                                 }
                                 aria-pressed={participation.includes("Não participou")}
                                 onClick={() =>
-                                    handleToggle("Não participou", participation, setParticipation)
+                                    handleSingleToggle("Não participou", setParticipation)
                                 }
                             >Não participou</button>
                         </div>

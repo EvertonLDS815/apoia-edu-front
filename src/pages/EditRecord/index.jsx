@@ -78,29 +78,36 @@ function EditRecord() {
         );
     }
 
+    function handleSingleToggle(value, setState) {
+        setState((prev) => prev === value ? "" : value);
+    }
+
     async function handleEditRecord(event) {
     event.preventDefault();
 
     try {
-        await api.put(`/record/${recordId}`, {
-            date: new Date(`${date}T12:00:00`).toISOString(),
 
+        const payload = {
+            date: new Date(`${date}T12:00:00`).toISOString(),
             behavior: {
                 set: behavior
             },
-
             participation: {
                 set: participation
             },
-
             description: description,
-
             childId: childId
-        });
+        };
+
+        if (participation.length === 0 || behavior.length === 0 || !childId || !date) {
+            return alert("Preencha os campos obrigatórios!");
+        }
+
+        await api.put(`/record/${recordId}`, payload);
 
         navigate(`/get-record/${recordId}`);
-        } catch (error) {
-            console.error("Erro ao atualizar registro:", error);
+        } catch (err) {
+            console.error("Erro ao atualizar registro:", err);
             alert("Não foi possível atualizar o registro.");
         }
     }
@@ -129,7 +136,6 @@ function EditRecord() {
                             <select
                                 value={childId}
                                 onChange={(e) => setChildId(e.target.value)}
-                                required
                             >
                                 <option value="">Selecione...</option>
 
@@ -147,7 +153,7 @@ function EditRecord() {
                         </label>
                     </div>
 
-                        <span className="legend">Estado emocional / social</span>
+                        <span className="legend">Estado emocional / social *</span>
                         <div className="behavior">
                             <button
                                 type="button"
@@ -213,7 +219,7 @@ function EditRecord() {
                                 }
                             >Sonolento(a)</button>
                         </div>
-                        <span className="legend">Participação nas atividades</span>
+                        <span className="legend">Participação nas atividades *</span>
                         <div className="behavior">
                             <button
                                 type="button"
@@ -224,7 +230,7 @@ function EditRecord() {
                                 }
                                 aria-pressed={participation.includes("Participou com apoio")}
                                 onClick={() =>
-                                    handleToggle("Participou com apoio", participation, setParticipation)
+                                    handleSingleToggle("Participou com apoio", setParticipation)
                                 }
                             >Participou com apoio</button>
                             <button
@@ -236,7 +242,7 @@ function EditRecord() {
                                 }
                                 aria-pressed={participation.includes("Participou sem apoio")}
                                 onClick={() =>
-                                    handleToggle("Participou sem apoio", participation, setParticipation)
+                                    handleSingleToggle("Participou sem apoio", setParticipation)
                                 }
                             >Participou sem apoio</button>
                             <button
@@ -248,7 +254,7 @@ function EditRecord() {
                                 }
                                 aria-pressed={participation.includes("Não participou")}
                                 onClick={() =>
-                                    handleToggle("Não participou", participation, setParticipation)
+                                    handleSingleToggle("Não participou", setParticipation)
                                 }
                             >Não participou</button>
                         </div>

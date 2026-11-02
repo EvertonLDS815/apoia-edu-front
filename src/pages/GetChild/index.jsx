@@ -19,7 +19,6 @@ function GetChild() {
         async function loadChild() {
             try {
                 const { data } = await api.get(`/record/${recordId}`);
-                console.log(data)
 
                 setRecord(data);
             } catch (err) {
