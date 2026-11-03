@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Header from "../../components/Header"
 import api from "../../config";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 function EditChild() {
@@ -37,9 +38,12 @@ function EditChild() {
                 description
             });
             navigate(`/child/record/${childId}`);
+
+            return toast.success("Criança atualizada!");
             
         } catch (err) {
             console.error(err);
+            return toast.error("Não foi possível atualizar!");
         }
     }
 
@@ -61,37 +65,39 @@ function EditChild() {
 
             <main>
 
-                <form className="form-reg" onSubmit={handleEditChild}>
-                    <label>
-                        <span className="legend">Nome da criança</span>
-                            <input type="text"
-                            className="nc-input"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        <span className="legend">Turma</span>
-                        <input
-                                type="text"
+                <div className="new-record-div">
+                    <form className="form-reg" onSubmit={handleEditChild}>
+                        <label>
+                            <span className="legend">Nome da criança</span>
+                                <input type="text"
                                 className="nc-input"
-                                placeholder="Ex: 2º A"
-                                value={grade}
-                                onChange={(e) => setGrade(e.target.value)}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                                 required
                             />
-                    </label>
-                    <div className="desc-beh">
-                        <label>
-                            <span className="legend">Observações gerais</span>
-                            <textarea
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}/>
                         </label>
-                        <button className="new-reg">Salvar criança</button>
-                    </div>
-                </form>
+                        <label>
+                            <span className="legend">Turma</span>
+                            <input
+                                    type="text"
+                                    className="nc-input"
+                                    placeholder="Ex: 2º A"
+                                    value={grade}
+                                    onChange={(e) => setGrade(e.target.value)}
+                                    required
+                                />
+                        </label>
+                        <div className="desc-beh">
+                            <label>
+                                <span className="legend">Observações gerais</span>
+                                <textarea
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}/>
+                            </label>
+                            <button className="new-reg">Salvar criança</button>
+                        </div>
+                    </form>
+                </div>
             </main>
         </>
     )

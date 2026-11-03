@@ -2,6 +2,7 @@ import Header from "../../components/Header";
 import {useState, useEffect} from 'react';
 import api from "../../config";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 function EditRecord() {
@@ -100,15 +101,17 @@ function EditRecord() {
         };
 
         if (participation.length === 0 || behavior.length === 0 || !childId || !date) {
-            return alert("Preencha os campos obrigatórios!");
+            return toast.warn("Preencha os campos obrigatórios!");
         }
 
         await api.put(`/record/${recordId}`, payload);
 
+        toast.success("Registro atualizado com sucesso!");
+
         navigate(`/get-record/${recordId}`);
         } catch (err) {
             console.error("Erro ao atualizar registro:", err);
-            alert("Não foi possível atualizar o registro.");
+            toast.error("Não foi possível atualizar o registro.");
         }
     }
 

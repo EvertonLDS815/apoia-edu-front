@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import api from '../../config';
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 function NewRecord() {
@@ -50,18 +51,19 @@ function NewRecord() {
         };
 
         if (participation.length === 0 || behavior.length === 0 || !childId || !date) {
-            return alert("Preencha os campos obrigatórios!");
+            return toast.warn("Preencha os campos obrigatórios!");
         }
         
         await api.post("/record", payload);
-
+        
         navigate('/home');
+        return toast.success("Registro criado com sucesso!");
     } catch (err) {
-        console.log('logout aqui');
         console.error(
             "Erro ao criar registro:",
             err.response?.data || err.message
         );
+        return toast.error("Não foi possível criar o registro!");
     }
 }
 

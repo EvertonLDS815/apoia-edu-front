@@ -3,6 +3,7 @@ import { useState } from "react";
 import api from '../../config';
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from 'react-toastify';
 
 function Login() {
     const [login, setLogin] = useState("");
@@ -16,12 +17,14 @@ function Login() {
         // Handle login logic here
 
         api.post('/login', { login, password })
-            .then(response => {
-               localStorage.setItem('token', response.data.token);
+            .then(({ data }) => {
+               localStorage.setItem('token', data.token);
                navigate('/home');
+               return toast.success(`Bem vindo ${data.user.name}!`);
             })
-            .catch(error => {
-                console.error('Login failed:', error);
+            .catch(err => {
+                console.error('login ou senha inválido!', err);
+                return toast.error('Falha ao fazer login');
             });
     }
 

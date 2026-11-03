@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import api from "../../config";
+import { toast } from "react-toastify";
 
 
 function DeleteChild({visible, onClose, params, perfil}) {
@@ -15,8 +16,10 @@ function DeleteChild({visible, onClose, params, perfil}) {
             await api.delete(`/child/record/${params}`);
 
             navigate('/children');
+            return toast.success("Criança deletada!");
         } catch (err) {
             console.error(err);
+            return toast.error("Não foi possível deletar a criança!");
         }
     }
 

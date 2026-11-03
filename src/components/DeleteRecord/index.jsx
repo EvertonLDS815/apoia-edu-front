@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import api from "../../config";
 import FormatDate from "../../utils/FormatDate";
+import { toast } from "react-toastify";
 
 
 function DeleteRecord({visible, date, params, onClose, child}) {
@@ -16,8 +17,10 @@ function DeleteRecord({visible, date, params, onClose, child}) {
             await api.delete(`/record/${params}`);
 
             navigate(`/child/record/${child}`);
+            return toast.success("Registro deletado!");
         } catch (err) {
             console.error(err);
+            return toast.error("Erro ao deletar o registro!");
         }
     }
 

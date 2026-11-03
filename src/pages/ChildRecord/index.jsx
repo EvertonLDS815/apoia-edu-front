@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import FormatDate from "../../utils/FormatDate";
 import DeleteChild from "../../components/DeleteChild";
+import { toast } from "react-toastify";
 
 
 function ChildRecord() {
@@ -28,6 +29,7 @@ function ChildRecord() {
                     "Erro ao buscar registros:",
                     err.response?.data || err.message
                 );
+                return toast.error("Erro ao buscar registros!");
             }
         }
 
