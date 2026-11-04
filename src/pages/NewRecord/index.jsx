@@ -22,7 +22,7 @@ function NewRecord() {
     const [date, setDate] = useState(dataAtual);
 
     
-    function handleToggle(value, state, setState) {
+    function handleToggle(value, setState) {
         setState((prev) =>
             prev.includes(value)
                 ? prev.filter((item) => item !== value)
@@ -121,63 +121,63 @@ function NewRecord() {
                                     type="button"
                                     aria-pressed={behavior.includes("Ansioso(a)")}
                                     onClick={() =>
-                                        handleToggle("Ansioso(a)", behavior, setBehavior)
+                                        handleToggle("Ansioso(a)", setBehavior)
                                     }
                                 >Ansioso(a)</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Calmo(a)")}
                                     onClick={() =>
-                                        handleToggle("Calmo(a)", behavior, setBehavior)
+                                        handleToggle("Calmo(a)", setBehavior)
                                     }
                                 >Calmo(a)</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Cooperativo(a)")}
                                     onClick={() =>
-                                        handleToggle("Cooperativo(a)", behavior, setBehavior)
+                                        handleToggle("Cooperativo(a)", setBehavior)
                                     }
                                 >Cooperativo(a)</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Feliz")}
                                     onClick={() =>
-                                        handleToggle("Feliz", behavior, setBehavior)
+                                        handleToggle("Feliz", setBehavior)
                                     }
                                 >Feliz</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Inquieto(a)")}
                                     onClick={() =>
-                                        handleToggle("Inquieto(a)", behavior, setBehavior)
+                                        handleToggle("Inquieto(a)", setBehavior)
                                     }
                                 >Inquieto(a)</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Introvertido(a)")}
                                     onClick={() =>
-                                        handleToggle("Introvertido(a)", behavior, setBehavior)
+                                        handleToggle("Introvertido(a)", setBehavior)
                                     }
                                 >Introvertido(a)</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Nervoso(a)")}
                                     onClick={() =>
-                                        handleToggle("Nervoso(a)", behavior, setBehavior)
+                                        handleToggle("Nervoso(a)", setBehavior)
                                     }
                                 >Nervoso(a)</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Sociável")}
                                     onClick={() =>
-                                        handleToggle("Sociável", behavior, setBehavior)
+                                        handleToggle("Sociável", setBehavior)
                                     }
                                 >Sociável</button>
                                 <button
                                     type="button"
                                     aria-pressed={behavior.includes("Sonolento(a)")}
                                     onClick={() =>
-                                        handleToggle("Sonolento(a)", behavior, setBehavior)
+                                        handleToggle("Sonolento(a)", setBehavior)
                                     }
                                 >Sonolento(a)</button>
                             </div>

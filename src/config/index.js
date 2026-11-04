@@ -29,10 +29,10 @@ api.interceptors.response.use(
       return Promise.reject(error);
     }
 
-    const { status, data } = error.response;
+    const { status } = error.response;
 
     alert(
-        `Status: ${status}\nResposta: ${JSON.stringify(data.message)}`
+        `Seu login expirou, logue novamente para continuar.`
     );
 
     if (status === 401) {
