@@ -27,12 +27,8 @@ function NewChild() {
 
             navigate('/children');
         } catch (err) {
-            console.error(
-                "Erro ao criar criança",
-                err.response?.data || err.message
-            );
-
-            return toast.error("Não foi possível criar a criança.");
+            console.error(err);
+            return toast.error("Erro ao criar criança!");
         }
     }
 

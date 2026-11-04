@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 
 import api from '../../config';
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function GetChildren() {
     const [children, setChildren] = useState([]);
@@ -26,11 +27,8 @@ function GetChildren() {
                 setLoading(false);
                 setChildren(data);
             } catch (err) {
-                console.log('logout aqui');
-                console.error(
-                    'Erro ao buscar crianças:',
-                    err.response?.data || err.message
-                );
+                console.error(err);
+                return toast.error("Erro ao buscar crianças!");
             }
         }
 

@@ -31,10 +31,13 @@ api.interceptors.response.use(
 
     const { status, data } = error.response;
 
-    // 🔐 Só desloga se for token inválido real
-    if (status === 401 && data?.message === 'Token inválido') {
-      localStorage.removeItem('token');
-      redirectToLogin();
+    alert(
+        `Status: ${status}\nResposta: ${JSON.stringify(data.message)}`
+    );
+
+    if (status === 401) {
+        localStorage.removeItem('token');
+        redirectToLogin();
     }
 
     return Promise.reject(error);

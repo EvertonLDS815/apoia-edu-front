@@ -3,7 +3,6 @@ import Header from "../../components/Header"
 import api from "../../config";
 import { useNavigate } from "react-router-dom";
 import FormatDate from "../../utils/FormatDate";
-import { toast } from "react-toastify";
 
 
 function Home() {
@@ -57,8 +56,7 @@ function Home() {
             
             setLoading(false);
         } catch (err) {
-            console.error("Erro ao carregar dashboard:", err);
-            return toast.error("Tente logar novamente!");
+            console.error(err);
         }
     }
 

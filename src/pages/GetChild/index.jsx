@@ -5,6 +5,7 @@ import api from "../../config";
 import { useEffect, useState } from "react";
 import FormatDate from "../../utils/FormatDate";
 import DeleteRecord from "../../components/DeleteRecord";
+import { toast } from "react-toastify";
 
 function GetChild() {
     const [record, setRecord] = useState(null);
@@ -22,8 +23,8 @@ function GetChild() {
 
                 setRecord(data);
             } catch (err) {
-                console.log('logout aqui');
-                console.error("Erro ao carregar registro:", err);
+                console.error(err);
+                return toast.error("Erro ao carregar registro!");
             } finally {
                 setLoading(false);
             }

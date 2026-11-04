@@ -45,10 +45,8 @@ function EditRecord() {
             
                 setLoading(false);
             } catch (err) {
-                console.error(
-                    "Erro ao buscar registro:",
-                    err.response?.data || err.message
-                );
+                console.error(err);
+                return toast.error("Erro ao buscar registro!");
             }
         }
 
@@ -63,7 +61,8 @@ function EditRecord() {
                 const { data } = await api.get("/children");
                 setChildren(data);
             } catch (err) {
-                console.error("Erro ao buscar crianças:", err);
+                console.error(err);
+                return toast.error("Erro ao buscar crianças!");
             }
         }
 
@@ -110,8 +109,8 @@ function EditRecord() {
 
         navigate(`/get-record/${recordId}`);
         } catch (err) {
-            console.error("Erro ao atualizar registro:", err);
-            toast.error("Não foi possível atualizar o registro.");
+            console.error(err);
+            return toast.error("Não foi possível atualizar o registro!");
         }
     }
 

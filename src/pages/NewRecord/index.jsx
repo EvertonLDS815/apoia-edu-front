@@ -59,11 +59,8 @@ function NewRecord() {
         navigate('/home');
         return toast.success("Registro criado com sucesso!");
     } catch (err) {
-        console.error(
-            "Erro ao criar registro:",
-            err.response?.data || err.message
-        );
-        return toast.error("Não foi possível criar o registro!");
+        console.error(err);
+        return toast.error("Erro ao criar registro!");
     }
 }
 
