@@ -20,7 +20,9 @@ function Login() {
             .then(({ data }) => {
                localStorage.setItem('token', data.token);
                navigate('/home');
-               return toast.success(`Bem vindo ${data.user.name}!`);
+               return toast.success(<div>Bem vindo(a)
+                                        <strong style={{ marginLeft: "5px" }}>{data.user.name}</strong>!
+                                    </div>);
             })
             .catch(err => {
                 console.error('login ou senha inválido!', err);
