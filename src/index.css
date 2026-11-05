@@ -11,15 +11,14 @@
   --icon-color: #733119;
   --border-child: #5cdd64;
   --icon-bg: #ffdfcb;
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --shadow: 0 1px 3px 0 #00000045, 0 1px 2px -1px #0000001a;
+  --shadow-md: 0 8px 24px -16px color-mix(in oklab, #007974 35%, transparent);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: none;
 }
 
 body {
@@ -206,6 +205,7 @@ main {
   padding: 1.5rem;
   display: flex;
   gap: 1rem;
+  box-shadow: var(--shadow-md);
 }
 
 .box-2-icon {
@@ -235,6 +235,7 @@ main {
   border-radius: 10px;
   border: 1px solid var(--border-header);
   margin-bottom: 4rem;
+  box-shadow: var(--shadow-md);
 }
 
 .recents {
@@ -242,7 +243,6 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   transition: cubic-bezier(.4, 0, .2, 1) all 100ms;
 }
 
@@ -277,6 +277,7 @@ main {
   border: 1px solid var(--border-header);
   padding: 24px;
   max-width: 360px;
+  box-shadow: var(--shadow-md);
 }
 
 .children-content p {
@@ -335,6 +336,7 @@ main {
   padding: 2rem;
   margin-bottom: 3.5rem;
   max-width: 100%;
+  box-shadow: var(--shadow-md);
 }
 
 .child-f {
@@ -393,6 +395,7 @@ main {
 
 .desc-beh label textarea {
   max-width: 100%;
+  min-height: 106px;
   height: 120px;
   border-radius: 14px;
   border: 1px solid var(--border-header);
@@ -427,7 +430,7 @@ main {
 .delete-button {
   background-color: transparent;
   color: #e7000b;
-  box-shadow: 0 0 4px 0 #0000001a, 0 1px 2px -1px #0000001a;
+  box-shadow: var(--shadow);
 }
 
 .delete-button:hover {
@@ -441,6 +444,7 @@ main {
   border-radius: 16px;
   border: 1px solid var(--border-header);
   margin-bottom: 1rem;
+  box-shadow: var(--shadow-md);
 }
 
 .p-5 {

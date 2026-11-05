@@ -21,27 +21,22 @@ api.interceptors.request.use(
 
 // 🔹 Response
 api.interceptors.response.use(
-  (response) => response,
-  (error) => {
+    response => response,
+    error => {
 
-    // 🔥 Se não tem response → é erro de rede (offline)
-    if (!error.response) {
-      return Promise.reject(error);
+        if (!error.response) {
+            return Promise.reject(error);
+        }
+
+        const { status } = error.response;
+
+        if (status === 401 && !error.config.url.includes('/login')) {
+            localStorage.removeItem('token');
+            redirectToLogin();
+        }
+
+        return Promise.reject(error);
     }
-
-    const { status } = error.response;
-
-    alert(
-        `Seu login expirou, logue novamente para continuar.`
-    );
-
-    if (status === 401) {
-        localStorage.removeItem('token');
-        redirectToLogin();
-    }
-
-    return Promise.reject(error);
-  }
 );
 
 export default api;

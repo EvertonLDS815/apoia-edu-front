@@ -24,7 +24,7 @@ function Login() {
             })
             .catch(err => {
                 console.error('login ou senha inválido!', err);
-                return toast.error('Falha ao fazer login');
+                return toast.error('Login ou senha inválido!');
             });
     }
 
@@ -41,7 +41,8 @@ function Login() {
                         placeholder="Usuário"
                         value={login}
                         onChange={(e) => setLogin(e.target.value)}
-                        />
+                        autoCapitalize="none"
+                    />
                 </label>
                 <label>Senha
                 <div className="password-wrapper">
