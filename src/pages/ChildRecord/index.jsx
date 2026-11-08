@@ -95,7 +95,7 @@ function ChildRecord() {
 
             <div className="box-3">
                     {reg.records.map((r) => (
-                        <div className="recents" key={r._id}>
+                        <div className="recents" key={r._id} onClick={() => navigate(`/get-record/${r._id}`)}>
                             <div>
                                 <strong className="span-date">{FormatDate(r.date)}</strong>
                                 <p>
@@ -115,7 +115,7 @@ function ChildRecord() {
                                 </p>
                             </div>
 
-                            <button className="view" onClick={() => navigate(`/get-record/${r._id}`)}>Visualizar</button>
+                            <button className="view">Visualizar</button>
                         </div>
                     ))}
             </div>

@@ -66,9 +66,15 @@ function NewRecord() {
 
     useEffect(() => {
         async function getChildren() {
+
+            try {
             const {data} = await api.get("/children");
     
             setChildren(data);
+            } catch (err) {
+                console.error(err);
+                return toast.error("Erro ao buscar crianças!");
+            }
         }
 
         getChildren();

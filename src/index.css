@@ -476,6 +476,7 @@ main {
   border-radius: 10px;
   font-size: 1.1rem;
   box-shadow: var(--shadow-hunt);
+  outline: none;
 }
 
 .nc-input:focus {
