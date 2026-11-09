@@ -102,6 +102,7 @@ function NewRecord() {
                             <label>
                                 <span className="legend">Criança *</span>
                                 <select
+                                    name="childId"
                                     value={childId}
                                     onChange={(e) => setChildId(e.target.value)}
                                 >
@@ -117,7 +118,12 @@ function NewRecord() {
 
                             <label>
                                 <span className="legend">Data *</span>
-                                <input value={date} type="date" name="date" onChange={(e) => setDate(e.target.value)} />
+                                <input
+                                    value={date}
+                                    type="date"
+                                    name="date"
+                                    onChange={(e) => setDate(e.target.value)}
+                                />
                             </label>
                         </div>
 
@@ -231,6 +237,7 @@ function NewRecord() {
                                 <span className="legend">Relatório(avanço ou dificuldade observada)</span>
                                     <textarea
                                         value={description}
+                                        name="description"
                                         onChange={(e) => setDescription(e.target.value)}
                                         />
                                 </label>

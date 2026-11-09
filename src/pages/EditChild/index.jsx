@@ -69,7 +69,9 @@ function EditChild() {
                     <form className="form-reg" onSubmit={handleEditChild}>
                         <label>
                             <span className="legend">Nome da criança</span>
-                                <input type="text"
+                                <input
+                                type="text"
+                                name="name-child"
                                 className="nc-input"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
@@ -79,19 +81,21 @@ function EditChild() {
                         <label>
                             <span className="legend">Turma</span>
                             <input
-                                    type="text"
-                                    className="nc-input"
-                                    placeholder="Ex: 2º A"
-                                    value={grade}
-                                    onChange={(e) => setGrade(e.target.value)}
-                                    required
-                                />
+                                type="text"
+                                name="grade-child"
+                                className="nc-input"
+                                placeholder="Ex: 2º A"
+                                value={grade}
+                                onChange={(e) => setGrade(e.target.value)}
+                                required
+                            />
                         </label>
                         <div className="desc-beh">
                             <label>
                                 <span className="legend">Observações gerais</span>
                                 <textarea
                                     value={description}
+                                    name="description"
                                     onChange={(e) => setDescription(e.target.value)}/>
                             </label>
                             <button className="new-reg">Salvar criança</button>

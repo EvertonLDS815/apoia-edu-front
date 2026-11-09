@@ -54,6 +54,7 @@ body {
   border-radius: 10px;
   height: 3rem;
   font-size: 1rem;
+  outline: none;
 }
 
 .form-login button[type="submit"] {
@@ -412,7 +413,8 @@ main {
 
 .desc-beh label textarea:focus,
 .child-f select:focus,
-.child-f input:focus {
+.child-f input:focus,
+.form-login input:focus {
   border-color: var(--border-child);
   box-shadow: 0 0 3px 0 var(--border-child), 0 1px 2px -1px var(--border-child);
 }

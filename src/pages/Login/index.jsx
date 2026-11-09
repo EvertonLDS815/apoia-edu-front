@@ -40,6 +40,7 @@ function Login() {
                 <label>Usuário
                     <input
                         type="text"
+                        name="login"
                         placeholder="Usuário"
                         value={login}
                         onChange={(e) => setLogin(e.target.value)}
@@ -51,6 +52,7 @@ function Login() {
                     <div className="password-container">
                         <input
                             type={showPassword ? "text" : "password"}
+                            name="password"
                             placeholder="Senha"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}

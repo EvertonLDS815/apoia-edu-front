@@ -48,7 +48,9 @@ function NewChild() {
                     <form className="form-reg" onSubmit={handleNewChild}>
                         <label>
                             <span className="legend">Nome da criança</span>
-                                <input type="text"
+                                <input
+                                type="text"
+                                name="name-child"
                                 className="nc-input"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
@@ -58,18 +60,20 @@ function NewChild() {
                         <label>
                             <span className="legend">Turma</span>
                             <input
-                                    type="text"
-                                    className="nc-input"
-                                    placeholder="Ex: 2º A"
-                                    value={grade}
-                                    onChange={(e) => setGrade(e.target.value)}
-                                    required
-                                />
+                                type="text"
+                                name="grade-child"
+                                className="nc-input"
+                                placeholder="Ex: 2º A"
+                                value={grade}
+                                onChange={(e) => setGrade(e.target.value)}
+                                required
+                            />
                         </label>
                         <div className="desc-beh">
                             <label>
                                 <span className="legend">Observações gerais</span>
                                 <textarea
+                                    name="description"
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}/>
                             </label>
