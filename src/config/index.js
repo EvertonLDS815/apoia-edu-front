@@ -2,7 +2,7 @@ import axios from 'axios';
 import { redirectToLogin } from '../utils/redirect';
 
 const api = axios.create({
-  baseURL: 'http://10.0.0.110:3000', // Substitua pela URL da sua API
+  baseURL: 'https://apoia-edu-back.onrender.com/', // Substitua pela URL da sua API
 });
 
 // 🔹 Request
