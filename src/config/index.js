@@ -2,7 +2,7 @@ import axios from 'axios';
 import { redirectToLogin } from '../utils/redirect';
 
 const api = axios.create({
-  baseURL: 'https://apoia-edu-back.onrender.com/', // Substitua pela URL da sua API
+  baseURL: 'https://apoia-edu-back.vercel.app/', // Substitua pela URL da sua API
 });
 
 // 🔹 Request
